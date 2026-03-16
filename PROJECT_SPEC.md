@@ -1,17 +1,19 @@
 You are helping me build a production-style portfolio project called PrimeLift AI.
 
 PROJECT IDENTITY
-PrimeLift AI is an agentic causal decision engine for experimentation and growth. The system helps teams analyse campaign or experiment data, estimate true incremental lift, identify persuadable users or segments, recommend budget allocation, and surface insights through a modern web application.
+PrimeLift AI is an ML-first causal decision engine for experimentation and growth. The system helps teams analyze campaign or experiment data, estimate true incremental lift, identify persuadable users or segments, recommend budget allocation, and surface insights through a modern web application.
 
 CORE PROBLEM
-Most businesses look at raw conversion or revenue increases and assume a campaign worked. But that is not enough. We need to know:
+Most businesses look at raw conversion or revenue increases and assume a campaign worked. That is not enough. We need to know:
 1. Did the treatment actually cause the lift?
 2. Which users or segments were influenced by the treatment?
-3. Where should future budget go for maximum incremental impact?
+3. Which users should receive treatment next?
+4. Where should future budget go for maximum incremental impact?
 
 PrimeLift AI solves this by combining:
-- causal inference
-- uplift modelling
+- causal inference baselines
+- causal ML uplift modeling
+- ML-driven treatment policy learning
 - budget decisioning
 - interactive analytics UI
 - optional agentic workflow layer later
@@ -19,25 +21,31 @@ PrimeLift AI solves this by combining:
 PRIMARY GOAL
 Build an end-to-end, local-first MVP that:
 - generates or ingests campaign experiment data
-- computes ATE with confidence intervals
-- performs segment-level uplift analysis
-- identifies high-uplift segments
-- recommends budget allocation based on incremental impact
+- computes ATE with confidence intervals as a scientific baseline
+- trains causal ML models for heterogeneous treatment effect estimation
+- scores users with predicted incremental conversion and revenue lift
+- identifies high-uplift segments and suppressible negative responders
+- recommends budget allocation based on predicted incremental impact
 - exposes results through a clean backend API
 - displays outputs in a polished frontend dashboard
 
 IMPORTANT BUILD STRATEGY
-We are NOT starting with autonomous agents.
-We are starting with a strong scientific product core first.
+We are not starting with autonomous agents.
+We are not stopping at rule-based analytics either.
+
+Before building the API and frontend, the first five phases must become ML-ready and ML-driven.
 
 Build order must be:
-1. dataset and data contracts
-2. core causal analysis backend
-3. uplift and decision modules
-4. API layer
-5. frontend dashboard
-6. integration
-7. optional agent layer later
+1. ML-ready scaffold and training foundation
+2. dataset, features, and model-ready data contracts
+3. causal ML analysis backend
+4. model-based uplift analysis
+5. ML decision engine
+6. backend API
+7. frontend dashboard
+8. integration
+9. testing and quality hardening
+10. optional agent layer later
 
 TECH STACK
 Backend:
@@ -47,6 +55,9 @@ Backend:
 - scipy
 - scikit-learn
 - statsmodels if useful
+- lightgbm
+- econml
+- joblib
 - FastAPI
 - pydantic
 - uvicorn
@@ -61,22 +72,50 @@ Frontend:
 - no unnecessary complexity
 
 GENERAL ENGINEERING RULES
-- Use modular src-layout Python package structure
-- Keep functions small and testable
-- Use typed Python where reasonable
-- Use pydantic schemas for API contracts
-- Add docstrings and clear comments
-- Separate business logic from API layer
-- Do not hardcode magic values
-- Keep naming clean and consistent
-- Prefer realistic but lightweight MVP implementations
-- Build everything so it can run locally first
-- Each step should leave the repo in a runnable state
+- Use modular src-layout Python package structure.
+- Keep functions small and testable.
+- Use typed Python where reasonable.
+- Use pydantic schemas for contracts and structured outputs.
+- Add docstrings and clear comments.
+- Separate data, training, scoring, evaluation, and API logic.
+- Do not hardcode magic values.
+- Keep naming clean and consistent.
+- Prefer realistic but lightweight MVP implementations.
+- Build everything so it can run locally first.
+- Each step should leave the repo in a runnable state.
+- Keep scientific baselines in place even after ML models are added.
+- Every completed phase must include proof-oriented notes and terminal-verifiable evidence.
+
+MODEL STRATEGY
+PrimeLift should use a layered causal ML stack for tabular marketing experiment data:
+
+Baselines:
+- Difference-in-means ATE
+- Bootstrap confidence interval
+
+CATE and uplift models:
+- XLearner as the simple ML uplift baseline
+- DRLearner as the main champion model
+- CausalForestDML as the non-linear challenger
+
+Policy and targeting models:
+- DRPolicyTree as the explainable decision policy model
+- DRPolicyForest as the stronger optional policy challenger
+
+Base learners:
+- LightGBMClassifier for binary propensity and conversion nuisance models
+- LightGBMRegressor for continuous revenue nuisance models
+
+Validation:
+- uplift decile analysis
+- Qini-style ranking analysis if feasible
+- RScorer where appropriate
+- DRTester where appropriate
 
 PROJECT PHASES
 
-PHASE 1: PROJECT SCAFFOLDING
-Create a clean repo structure for an end-to-end data product.
+PHASE 1: ML-READY FOUNDATION
+Create a clean repo structure for a causal ML product.
 
 Suggested structure:
 primelift-ai/
@@ -84,107 +123,107 @@ primelift-ai/
   requirements.txt
   .gitignore
   backend/
+    scripts/
     src/
       primelift/
         __init__.py
         data/
+        features/
         causal/
         uplift/
         decision/
+        models/
+        evaluation/
         api/
         utils/
     tests/
-  frontend/
-    app or src/
   data/
     raw/
     processed/
-  notebooks/
+  artifacts/
+    models/
+    reports/
+    metrics/
   docs/
 
-Set up a Python virtual environment-ready backend and a separate frontend app.
+Requirements:
+- virtual environment-ready setup
+- dependency list for causal ML stack
+- feature-schema definitions for future training
+- model registry or blueprint definitions
+- artifact path helpers for saved models and reports
+- script to verify the ML foundation from the terminal
 
-PHASE 2: DATASET FOUNDATION
-We need a realistic synthetic marketing/experimentation dataset for MVP development.
-
-Create a data generation module that simulates user-level campaign experiment data with fields like:
-- user_id
-- treatment
-- conversion
-- revenue
-- segment
-- age_band
-- geography
-- device_type
-- prior_engagement_score
-- prior_purchases
-- channel
-- campaign_id
+PHASE 2: DATASET AND FEATURE FOUNDATION
+We need a realistic synthetic marketing and experimentation dataset that is not only analytics-ready but model-ready.
 
 Requirements:
-- binary treatment assignment
-- realistic baseline conversion probabilities
-- uplift should vary by segment
-- some segments should respond positively
-- some weakly
-- some negatively
-- revenue should exist for converted users
-- dataset should be reproducible using a random seed
-- save generated CSV to data/raw/
+- reproducible user-level London experiment dataset
+- clear schema and data dictionary
+- train, validation, and test splits
+- feature lists for numeric, categorical, identifiers, treatment, and outcomes
+- leakage-safe preprocessing pipeline
+- saved processed feature datasets
+- helper utilities to inspect split sizes and feature columns
 
-Also define a data dictionary and expected schema.
-
-PHASE 3: CAUSAL ANALYSIS CORE
-Implement the first scientific layer.
+PHASE 3: CAUSAL ML ANALYSIS CORE
+Implement the scientific and modeling layer.
 
 Features:
-1. ATE estimator
-   - difference in means between treated and control
-2. bootstrap confidence interval
-   - 95 percent CI
-3. summary statistics
-   - treated conversion rate
-   - control conversion rate
-   - absolute lift
-   - relative lift if useful
-4. revenue lift version if possible
+1. keep the ATE estimator and bootstrap CI baseline
+2. train XLearner for uplift estimation
+3. train DRLearner for heterogeneous treatment effects
+4. train CausalForestDML as challenger
+5. support both conversion uplift and revenue uplift workflows where feasible
+6. save fitted model artifacts
+7. return structured serializable outputs with model metadata
 
-Output should be structured and serialisable.
+Outputs should include:
+- baseline ATE metrics
+- per-user CATE predictions
+- model comparison summary
+- saved artifacts and evaluation metrics
 
-PHASE 4: SEGMENT-LEVEL UPLIFT ANALYSIS
-Implement grouped analysis by important dimensions such as:
-- segment
-- geography
-- device_type
-- channel
+PHASE 4: MODEL-BASED UPLIFT ANALYSIS
+Implement uplift analysis driven by model predictions instead of only grouped averages.
 
-For each group compute:
-- treated conversion rate
-- control conversion rate
-- uplift
-- group size
-- confidence indicator if possible
+Features:
+- per-user uplift scoring
+- uplift deciles or ranking buckets
+- segment-level rollups from model predictions
+- borough, device, and channel rollups from model predictions
 
-Return sorted segment-level results by uplift descending.
+- top persuadable cohorts
+- negative or low-value cohorts for suppression
+- model validation summaries for ranking quality
 
-PHASE 5: DECISION ENGINE MVP
-Build a simple decision layer that converts analysis into actions.
+Outputs should include:
+- scored dataset views
+- uplift summary tables
+- ranked segment reports
+- optional simple explanation outputs if practical
 
-Initial rules:
-- rank top segments by positive uplift
-- suppress segments with negative uplift
-- allocate budget proportionally toward top positive incremental segments
-- produce recommendation summary such as:
-  “Increase spend on Young Professionals and Retargeted Users; reduce spend on Existing Subscribers”
+PHASE 5: ML DECISION ENGINE
+Build the first ML-driven action layer that converts uplift predictions into targeting and budget actions.
 
-Keep this first version rule-based and explainable.
-Do not jump into advanced optimisation too early.
+Requirements:
+- rank top positive-uplift users and segments
+- suppress users or segments with negative predicted uplift
+- allocate budget proportionally toward top positive predicted incremental impact
+- support explainable rules via DRPolicyTree
+- optionally compare against DRPolicyForest
+- produce recommendation summaries such as:
+  "Increase spend on High Intent Returners and Bargain Hunters; suppress Window Shoppers."
+
+Keep this version practical and explainable.
+Avoid premature enterprise optimization layers.
 
 PHASE 6: BACKEND API
 Build a FastAPI backend exposing endpoints like:
 - POST /dataset/generate
 - GET /dataset/sample
 - GET /analysis/ate
+- GET /analysis/models
 - GET /analysis/segments
 - GET /analysis/recommendations
 - GET /health
@@ -192,71 +231,75 @@ Build a FastAPI backend exposing endpoints like:
 All endpoints should return typed JSON responses using pydantic models.
 
 PHASE 7: FRONTEND UI
-Build a modern dark-mode analytics dashboard.
+Build a modern analytics dashboard.
 
-Main screens/components:
+Main screens and components:
 1. Overview dashboard
    - headline KPIs
-   - ATE card
-   - confidence interval card
-   - top segment card
+   - baseline ATE card
+   - champion model card
+   - top uplift segment card
    - budget recommendation card
 
-2. Segment insights
+2. Uplift insights
    - uplift by segment chart
-   - sortable table
-   - positive and negative responders
+   - uplift decile view
+   - sortable scored segment table
+   - positive and negative responder panels
 
 3. Recommendations panel
    - human-readable action summary
    - suggested budget allocation
-   - highlighted target segments
+   - highlighted target and suppress lists
 
-4. Dataset panel
+4. Dataset and model panel
    - dataset upload or generate button
    - sample data preview
    - schema summary
+   - model registry summary
+   - training and scoring status
 
 5. Agent-style query panel later
    - reserve space for future conversational assistant
    - do not implement full agent functionality yet unless asked
 
 UI REQUIREMENTS
-- dark mode, premium feel
-- black, deep navy, cyan accents
+- premium feel
 - clean grid layout
-- sticky top navigation
-- no clutter
-- good spacing and hierarchy
-- charts should be readable
-- cards should look like a real SaaS analytics product
+- strong information hierarchy
+- readable charts and tables
+- should look like a real analytics SaaS product
 
 PHASE 8: INTEGRATION
 Connect frontend to backend APIs.
 
 Requirements:
-- dashboard fetches current metrics from API
-- segment chart uses live backend output
-- recommendations panel reflects backend decision engine
+- dashboard fetches live baseline and model metrics
+- uplift tables and charts use backend model outputs
+- recommendation panel reflects backend policy and budget outputs
 - dataset generation action triggers backend generation
+- model training and scoring flows are wired cleanly
 - basic loading and error states
 
 PHASE 9: TESTING AND QUALITY
 Add tests for:
 - data generation shape and schema
-- ATE correctness on deterministic toy cases
-- bootstrap output format
-- segment analysis logic
+- feature pipeline correctness
+- deterministic ATE toy cases
+- model training smoke tests
+- scoring output shape and types
+- segment uplift logic
 - recommendation logic
+- artifact creation
 
 PHASE 10: FUTURE EXTENSIONS
 Structure the code so the following can be added later:
-- CATE estimation
-- causal forest or meta-learners
-- uplift modelling
-- budget optimisation solver
+- richer CATE estimators
+- hyperparameter tuning
+- calibration workflows
+- budget optimization solver
 - report generation
-- conversational assistant or OpenClaw-based orchestration
+- conversational assistant or orchestration layer
 - scheduled experiment reports
 
 IMPORTANT EXECUTION STYLE
@@ -267,14 +310,16 @@ At each task:
 - implement only the current slice
 - keep code runnable
 - avoid speculative overengineering
+- provide notes and proof of what was built
+- ask before moving to the next phase
 
 CURRENT PRIORITY
-Start with the backend scientific core before frontend polish.
-First deliverable should be:
-- repo scaffold
-- synthetic dataset generator
-- data schema
-- saved CSV output
-- README instructions to run locally
+First deliverable in the revised roadmap should be:
+- ML-ready scaffold
+- causal ML dependency plan
+- feature-schema definitions
+- model registry definitions
+- artifact directories and helpers
+- terminal-verifiable setup instructions
 
-When in doubt, choose simplicity, correctness, and modularity over cleverness.
+When in doubt, choose simplicity, correctness, reproducibility, and clear ML structure over cleverness.

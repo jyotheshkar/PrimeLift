@@ -14,3 +14,17 @@ backend/.pytest_cache/
 data/raw/*.csv
 data/processed/*
 !data/processed/.gitkeep
+artifacts/models/*
+!artifacts/models/.gitkeep
+artifacts/reports/*
+!artifacts/reports/.gitkeep
+artifacts/metrics/*
+!artifacts/metrics/.gitkeep
+artifacts/features/*
+!artifacts/features/.gitkeep
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+*_server.log
+*.err.log
