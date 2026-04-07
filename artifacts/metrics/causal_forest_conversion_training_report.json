@@ -1,0 +1,200 @@
+{
+  "model_name": "causal_forest_conversion",
+  "prepared_manifest_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\features\\prepared_dataset_manifest.json",
+  "feature_column_count": 105,
+  "feature_column_sample": [
+    "numeric__age",
+    "numeric__prior_engagement_score",
+    "numeric__prior_purchases_90d",
+    "numeric__prior_sessions_30d",
+    "numeric__avg_order_value",
+    "numeric__customer_tenure_days",
+    "categorical__london_borough_Barking and Dagenham",
+    "categorical__london_borough_Barnet",
+    "categorical__london_borough_Bexley",
+    "categorical__london_borough_Brent",
+    "categorical__london_borough_Bromley",
+    "categorical__london_borough_Camden",
+    "categorical__london_borough_City of London",
+    "categorical__london_borough_Croydon",
+    "categorical__london_borough_Ealing",
+    "categorical__london_borough_Enfield",
+    "categorical__london_borough_Greenwich",
+    "categorical__london_borough_Hackney",
+    "categorical__london_borough_Hammersmith and Fulham",
+    "categorical__london_borough_Haringey"
+  ],
+  "train_row_count": 70000,
+  "train_observed_ate": 0.010183578846079719,
+  "validation_row_count": 15000,
+  "test_row_count": 15000,
+  "model_artifact_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\models\\causal_forest_conversion.joblib",
+  "metrics_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\causal_forest_conversion_training_report.json",
+  "config": {
+    "outcome_column": "conversion",
+    "treatment_column": "treatment",
+    "score_column": "predicted_cate_causal_forest_conversion",
+    "model_y_class": "lightgbm.LGBMRegressor",
+    "model_t_class": "lightgbm.LGBMClassifier",
+    "model_y_params": {
+      "boosting_type": "gbdt",
+      "class_weight": null,
+      "colsample_bytree": 0.9,
+      "importance_type": "split",
+      "learning_rate": 0.05,
+      "max_depth": -1,
+      "min_child_samples": 40,
+      "min_child_weight": 0.001,
+      "min_split_gain": 0.0,
+      "n_estimators": 120,
+      "n_jobs": 1,
+      "num_leaves": 31,
+      "objective": null,
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "subsample": 0.9,
+      "subsample_for_bin": 200000,
+      "subsample_freq": 0,
+      "verbosity": -1
+    },
+    "model_t_params": {
+      "boosting_type": "gbdt",
+      "class_weight": null,
+      "colsample_bytree": 0.9,
+      "importance_type": "split",
+      "learning_rate": 0.05,
+      "max_depth": -1,
+      "min_child_samples": 40,
+      "min_child_weight": 0.001,
+      "min_split_gain": 0.0,
+      "n_estimators": 120,
+      "n_jobs": 1,
+      "num_leaves": 31,
+      "objective": null,
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "subsample": 0.9,
+      "subsample_for_bin": 200000,
+      "subsample_freq": 0,
+      "verbosity": -1
+    },
+    "n_estimators": 80,
+    "max_depth": null,
+    "min_samples_leaf": 40,
+    "max_samples": 0.45,
+    "cv": 2
+  },
+  "baseline_validation_analysis": {
+    "outcome_column": "conversion",
+    "treatment_column": "treatment",
+    "treated_mean": 0.12298037121110962,
+    "control_mean": 0.1126348022899747,
+    "ate": 0.010345568921134918,
+    "absolute_lift": 0.010345568921134918,
+    "relative_lift": 0.09185055338846852,
+    "ci_lower": 0.0002751708141452187,
+    "ci_upper": 0.021347483698587164,
+    "confidence_level": 0.95,
+    "bootstrap_samples": 300
+  },
+  "split_evaluations": [
+    {
+      "split_name": "validation",
+      "row_count": 15000,
+      "mean_predicted_cate": 0.01100590459356182,
+      "std_predicted_cate": 0.013072888900589585,
+      "min_predicted_cate": -0.042917213816693174,
+      "max_predicted_cate": 0.08472803842779372,
+      "positive_cate_share": 0.8049333333333333,
+      "overall_observed_ate": 0.010345568921134918,
+      "mean_interval_lower": -0.02821029802027759,
+      "mean_interval_upper": 0.050222107207401216,
+      "mean_interval_width": 0.07843240522767882,
+      "top_decile_size": 1500,
+      "top_decile_mean_predicted_cate": 0.03506456403669777,
+      "top_decile_observed_ate": 0.002951635846372702,
+      "bottom_decile_size": 1500,
+      "bottom_decile_mean_predicted_cate": -0.010666390176461314,
+      "bottom_decile_observed_ate": 0.013255242088194036,
+      "top_segments_by_mean_predicted_cate": [
+        {
+          "segment": "High Intent Returners",
+          "mean_predicted_cate": 0.016288287563995637
+        },
+        {
+          "segment": "Bargain Hunters",
+          "mean_predicted_cate": 0.016195871659125022
+        },
+        {
+          "segment": "Young Professionals",
+          "mean_predicted_cate": 0.015211160246034937
+        }
+      ],
+      "bottom_segments_by_mean_predicted_cate": [
+        {
+          "segment": "Lapsed Users",
+          "mean_predicted_cate": -5.3454471781300814e-05
+        },
+        {
+          "segment": "Window Shoppers",
+          "mean_predicted_cate": 0.004700604956023252
+        },
+        {
+          "segment": "Loyal Members",
+          "mean_predicted_cate": 0.008721358152588893
+        }
+      ],
+      "score_output_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\causal_forest_conversion_validation_scores.csv"
+    },
+    {
+      "split_name": "test",
+      "row_count": 15000,
+      "mean_predicted_cate": 0.010946921427718264,
+      "std_predicted_cate": 0.013043019793322449,
+      "min_predicted_cate": -0.051232886613696314,
+      "max_predicted_cate": 0.07903642438591577,
+      "positive_cate_share": 0.8037333333333333,
+      "overall_observed_ate": 0.009976772207203513,
+      "mean_interval_lower": -0.028205231419915603,
+      "mean_interval_upper": 0.050099074275352116,
+      "mean_interval_width": 0.07830430569526774,
+      "top_decile_size": 1500,
+      "top_decile_mean_predicted_cate": 0.034894885414083705,
+      "top_decile_observed_ate": 0.012935450819672123,
+      "bottom_decile_size": 1500,
+      "bottom_decile_mean_predicted_cate": -0.010791447992926436,
+      "bottom_decile_observed_ate": 0.04092978766150296,
+      "top_segments_by_mean_predicted_cate": [
+        {
+          "segment": "High Intent Returners",
+          "mean_predicted_cate": 0.016071499280101376
+        },
+        {
+          "segment": "Bargain Hunters",
+          "mean_predicted_cate": 0.015823987347310376
+        },
+        {
+          "segment": "Young Professionals",
+          "mean_predicted_cate": 0.01495164648503921
+        }
+      ],
+      "bottom_segments_by_mean_predicted_cate": [
+        {
+          "segment": "Lapsed Users",
+          "mean_predicted_cate": 0.00023047925556218612
+        },
+        {
+          "segment": "Window Shoppers",
+          "mean_predicted_cate": 0.0049655050902702
+        },
+        {
+          "segment": "Loyal Members",
+          "mean_predicted_cate": 0.008376426805689166
+        }
+      ],
+      "score_output_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\causal_forest_conversion_test_scores.csv"
+    }
+  ]
+}

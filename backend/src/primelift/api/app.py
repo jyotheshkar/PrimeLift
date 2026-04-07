@@ -30,6 +30,10 @@ from primelift.api.schemas import (
 DEFAULT_FRONTEND_ORIGINS = (
     "http://127.0.0.1:3000",
     "http://localhost:3000",
+    "http://127.0.0.1:3001",
+    "http://localhost:3001",
+    "http://127.0.0.1:3002",
+    "http://localhost:3002",
 )
 
 
@@ -54,8 +58,8 @@ def create_app() -> FastAPI:
     )
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=get_frontend_origins(),
-        allow_credentials=True,
+        allow_origins=["*"],
+        allow_credentials=False,
         allow_methods=["*"],
         allow_headers=["*"],
     )

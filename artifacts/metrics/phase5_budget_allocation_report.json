@@ -1,0 +1,121 @@
+{
+  "report_name": "phase5_segment_budget_allocation",
+  "split_name": "test",
+  "conversion_model_name": "drlearner_conversion",
+  "revenue_model_name": "drlearner_revenue",
+  "total_budget": 100000.0,
+  "allocated_budget": 100000.0,
+  "unallocated_budget": 0.0,
+  "conversion_rollup_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\phase4_conversion_rollup_report.json",
+  "revenue_metrics_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\drlearner_revenue_training_report.json",
+  "revenue_scores_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\drlearner_revenue_test_scores.csv",
+  "budget_table_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\phase5_segment_budget_allocation.csv",
+  "output_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\phase5_budget_allocation_report.json",
+  "allocated_segment_count": 7,
+  "suppressed_segment_count": 1,
+  "top_budget_segments": [
+    {
+      "segment": "High Intent Returners",
+      "eligible_user_count": 2098,
+      "positive_revenue_user_count": 1503,
+      "positive_revenue_user_share": 0.7163965681601525,
+      "mean_predicted_conversion_effect": 0.022910596398893156,
+      "observed_conversion_ate": 0.02433115230825153,
+      "mean_predicted_revenue_effect": 3.0546288579492105,
+      "total_positive_predicted_revenue_effect": 11224.33318669948,
+      "budget_share": 0.3786954284717371,
+      "recommended_budget": 37869.54284717371,
+      "rationale": "Allocate 37.9% of budget to High Intent Returners because the cohort shows mean predicted incremental revenue 3.0546 with observed conversion ATE 0.0243."
+    },
+    {
+      "segment": "Loyal Members",
+      "eligible_user_count": 1819,
+      "positive_revenue_user_count": 1144,
+      "positive_revenue_user_share": 0.6289169873556899,
+      "mean_predicted_conversion_effect": 0.003909200811642207,
+      "observed_conversion_ate": 0.0009719676784479825,
+      "mean_predicted_revenue_effect": 0.4163368981118223,
+      "total_positive_predicted_revenue_effect": 7091.530782999992,
+      "budget_share": 0.23925967304418344,
+      "recommended_budget": 23925.967304418344,
+      "rationale": "Allocate 23.9% of budget to Loyal Members because the cohort shows mean predicted incremental revenue 0.4163 with observed conversion ATE 0.0010."
+    },
+    {
+      "segment": "Young Professionals",
+      "eligible_user_count": 2691,
+      "positive_revenue_user_count": 2393,
+      "positive_revenue_user_share": 0.8892604979561501,
+      "mean_predicted_conversion_effect": 0.01284284035459904,
+      "observed_conversion_ate": 0.015374774631456145,
+      "mean_predicted_revenue_effect": 1.1213857273411545,
+      "total_positive_predicted_revenue_effect": 4165.8925612073,
+      "budget_share": 0.14055217732693803,
+      "recommended_budget": 14055.217732693804,
+      "rationale": "Allocate 14.1% of budget to Young Professionals because the cohort shows mean predicted incremental revenue 1.1214 with observed conversion ATE 0.0154."
+    },
+    {
+      "segment": "Families",
+      "eligible_user_count": 2392,
+      "positive_revenue_user_count": 2033,
+      "positive_revenue_user_share": 0.8499163879598662,
+      "mean_predicted_conversion_effect": 0.00696820432977695,
+      "observed_conversion_ate": 0.0015611116121396207,
+      "mean_predicted_revenue_effect": 0.6075221730552094,
+      "total_positive_predicted_revenue_effect": 2807.7612714125935,
+      "budget_share": 0.09473046995646084,
+      "recommended_budget": 9473.046995646084,
+      "rationale": "Allocate 9.5% of budget to Families because the cohort shows mean predicted incremental revenue 0.6075 with observed conversion ATE 0.0016."
+    },
+    {
+      "segment": "Bargain Hunters",
+      "eligible_user_count": 1815,
+      "positive_revenue_user_count": 1763,
+      "positive_revenue_user_share": 0.9713498622589531,
+      "mean_predicted_conversion_effect": 0.015572269886188272,
+      "observed_conversion_ate": 0.023196564839146845,
+      "mean_predicted_revenue_effect": 0.8779915498975167,
+      "total_positive_predicted_revenue_effect": 1679.5474864010139,
+      "budget_share": 0.056665901165064037,
+      "recommended_budget": 5666.590116506403,
+      "rationale": "Allocate 5.7% of budget to Bargain Hunters because the cohort shows mean predicted incremental revenue 0.8780 with observed conversion ATE 0.0232."
+    },
+    {
+      "segment": "Students",
+      "eligible_user_count": 1495,
+      "positive_revenue_user_count": 1483,
+      "positive_revenue_user_share": 0.9919732441471572,
+      "mean_predicted_conversion_effect": 0.008760998160907961,
+      "observed_conversion_ate": 0.009512304250559284,
+      "mean_predicted_revenue_effect": 0.8979474821461,
+      "total_positive_predicted_revenue_effect": 1350.7844800623034,
+      "budget_share": 0.045573834894381285,
+      "recommended_budget": 4557.383489438129,
+      "rationale": "Allocate 4.6% of budget to Students because the cohort shows mean predicted incremental revenue 0.8979 with observed conversion ATE 0.0095."
+    },
+    {
+      "segment": "Window Shoppers",
+      "eligible_user_count": 1481,
+      "positive_revenue_user_count": 1470,
+      "positive_revenue_user_share": 0.9925725860904794,
+      "mean_predicted_conversion_effect": 0.00847800612505442,
+      "observed_conversion_ate": 1.64131743079117e-05,
+      "mean_predicted_revenue_effect": 0.8761529131110918,
+      "total_positive_predicted_revenue_effect": 1319.6239159047386,
+      "budget_share": 0.044522515141235224,
+      "recommended_budget": 4452.251514123523,
+      "rationale": "Allocate 4.5% of budget to Window Shoppers because the cohort shows mean predicted incremental revenue 0.8762 with observed conversion ATE 0.0000."
+    }
+  ],
+  "suppressed_segments": [
+    {
+      "segment": "Lapsed Users",
+      "eligible_user_count": 1209,
+      "mean_predicted_conversion_effect": 0.00020662727422083546,
+      "observed_conversion_ate": -0.008005408097915038,
+      "mean_predicted_revenue_effect": 0.7045421594865333,
+      "recommended_budget": 0.0,
+      "rationale": "Keep Lapsed Users at zero incremental budget because the cohort shows mean predicted incremental revenue 0.7045 with observed conversion ATE -0.0080."
+    }
+  ],
+  "action_summary": "Allocate budget to High Intent Returners (37.9%), Loyal Members (23.9%), Young Professionals (14.1%); keep Lapsed Users at zero incremental budget."
+}

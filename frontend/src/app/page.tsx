@@ -1,5 +1,5 @@
-import { OverviewLiveDashboard } from "@/components/overview-live-dashboard";
+import { PrimeDashboard } from "@/components/prime-dashboard";
 
 export default function Home() {
-  return <OverviewLiveDashboard />;
+  return <PrimeDashboard />;
 }

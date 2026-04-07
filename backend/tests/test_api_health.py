@@ -39,10 +39,11 @@ def test_health_endpoint_returns_readiness_flags() -> None:
 
 
 def test_health_endpoint_allows_local_frontend_origin() -> None:
-    """The API should expose CORS headers for the local frontend origin."""
+    """The API should expose CORS headers for any origin (wildcard config)."""
 
     client = TestClient(create_app())
     response = client.get("/health", headers={"Origin": "http://127.0.0.1:3000"})
 
     assert response.status_code == 200
-    assert response.headers["access-control-allow-origin"] == "http://127.0.0.1:3000"
+    # CORS is configured with allow_origins=["*"] so the header returns "*"
+    assert response.headers["access-control-allow-origin"] == "*"

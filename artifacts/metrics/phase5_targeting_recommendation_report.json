@@ -1,0 +1,755 @@
+{
+  "report_name": "phase5_model_targeting_recommendations",
+  "outcome_column": "conversion",
+  "split_name": "test",
+  "model_name": "drlearner_conversion",
+  "validation_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\phase4_conversion_validation_summary.json",
+  "rollup_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\phase4_conversion_rollup_report.json",
+  "scored_view_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\phase4_conversion_enriched_scored_view.csv",
+  "target_users_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\phase5_target_users.csv",
+  "suppress_users_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\phase5_suppress_users.csv",
+  "output_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\phase5_targeting_recommendation_report.json",
+  "target_user_count": 25,
+  "suppress_user_count": 25,
+  "target_cohort_count": 10,
+  "suppress_cohort_count": 10,
+  "top_target_users": [
+    {
+      "user_id": "LON-065845",
+      "action": "target",
+      "predicted_effect": 0.4288236903519877,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Hackney",
+      "device_type": "mobile",
+      "channel": "lifecycle_email",
+      "rationale": "High predicted incremental impact (0.4288) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-049529",
+      "action": "target",
+      "predicted_effect": 0.4201406432691466,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Merton",
+      "device_type": "tablet",
+      "channel": "brand_search",
+      "rationale": "High predicted incremental impact (0.4201) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-083860",
+      "action": "target",
+      "predicted_effect": 0.3732532612945174,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Hackney",
+      "device_type": "mobile",
+      "channel": "generic_search",
+      "rationale": "High predicted incremental impact (0.3733) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-095017",
+      "action": "target",
+      "predicted_effect": 0.3693937231430117,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Brent",
+      "device_type": "mobile",
+      "channel": "homepage",
+      "rationale": "High predicted incremental impact (0.3694) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-083272",
+      "action": "target",
+      "predicted_effect": 0.3209363683774722,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Waltham Forest",
+      "device_type": "mobile",
+      "channel": "seo_content",
+      "rationale": "High predicted incremental impact (0.3209) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-070179",
+      "action": "target",
+      "predicted_effect": 0.3004320622567121,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Hackney",
+      "device_type": "mobile",
+      "channel": "organic_social",
+      "rationale": "High predicted incremental impact (0.3004) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-079852",
+      "action": "target",
+      "predicted_effect": 0.3003026359641647,
+      "uplift_decile_rank": 1,
+      "segment": "Loyal Members",
+      "london_borough": "Hillingdon",
+      "device_type": "mobile",
+      "channel": "lifecycle_email",
+      "rationale": "High predicted incremental impact (0.3003) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-063750",
+      "action": "target",
+      "predicted_effect": 0.2715038987605748,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Merton",
+      "device_type": "desktop",
+      "channel": "homepage",
+      "rationale": "High predicted incremental impact (0.2715) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-033796",
+      "action": "target",
+      "predicted_effect": 0.2709717523268178,
+      "uplift_decile_rank": 1,
+      "segment": "Loyal Members",
+      "london_borough": "Southwark",
+      "device_type": "mobile",
+      "channel": "brand_navigation",
+      "rationale": "High predicted incremental impact (0.2710) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-037372",
+      "action": "target",
+      "predicted_effect": 0.2691935909212039,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Brent",
+      "device_type": "mobile",
+      "channel": "promo_email",
+      "rationale": "High predicted incremental impact (0.2692) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-073910",
+      "action": "target",
+      "predicted_effect": 0.268962840174009,
+      "uplift_decile_rank": 1,
+      "segment": "Loyal Members",
+      "london_borough": "Southwark",
+      "device_type": "mobile",
+      "channel": "app_entry",
+      "rationale": "High predicted incremental impact (0.2690) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-038223",
+      "action": "target",
+      "predicted_effect": 0.2671749869272593,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Brent",
+      "device_type": "desktop",
+      "channel": "generic_search",
+      "rationale": "High predicted incremental impact (0.2672) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-041250",
+      "action": "target",
+      "predicted_effect": 0.2659915069597192,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Croydon",
+      "device_type": "mobile",
+      "channel": "brand_search",
+      "rationale": "High predicted incremental impact (0.2660) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-001365",
+      "action": "target",
+      "predicted_effect": 0.2648247119855335,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Lambeth",
+      "device_type": "desktop",
+      "channel": "brand_search",
+      "rationale": "High predicted incremental impact (0.2648) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-041339",
+      "action": "target",
+      "predicted_effect": 0.2571714459803912,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Merton",
+      "device_type": "mobile",
+      "channel": "homepage",
+      "rationale": "High predicted incremental impact (0.2572) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-089976",
+      "action": "target",
+      "predicted_effect": 0.2553064576929564,
+      "uplift_decile_rank": 1,
+      "segment": "Loyal Members",
+      "london_borough": "Lambeth",
+      "device_type": "mobile",
+      "channel": "seo_content",
+      "rationale": "High predicted incremental impact (0.2553) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-092173",
+      "action": "target",
+      "predicted_effect": 0.2525726216056766,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Brent",
+      "device_type": "mobile",
+      "channel": "generic_search",
+      "rationale": "High predicted incremental impact (0.2526) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-005074",
+      "action": "target",
+      "predicted_effect": 0.2465978115720473,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Bexley",
+      "device_type": "mobile",
+      "channel": "promo_email",
+      "rationale": "High predicted incremental impact (0.2466) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-016732",
+      "action": "target",
+      "predicted_effect": 0.2447390844492377,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Ealing",
+      "device_type": "tablet",
+      "channel": "homepage",
+      "rationale": "High predicted incremental impact (0.2447) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-030214",
+      "action": "target",
+      "predicted_effect": 0.2387271904533843,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Merton",
+      "device_type": "mobile",
+      "channel": "seo_brand",
+      "rationale": "High predicted incremental impact (0.2387) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-068085",
+      "action": "target",
+      "predicted_effect": 0.2367564497167738,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Havering",
+      "device_type": "mobile",
+      "channel": "brand_search",
+      "rationale": "High predicted incremental impact (0.2368) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-083995",
+      "action": "target",
+      "predicted_effect": 0.2302401281353394,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Hammersmith and Fulham",
+      "device_type": "mobile",
+      "channel": "homepage",
+      "rationale": "High predicted incremental impact (0.2302) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-054883",
+      "action": "target",
+      "predicted_effect": 0.2294868619734577,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Hackney",
+      "device_type": "mobile",
+      "channel": "lifecycle_email",
+      "rationale": "High predicted incremental impact (0.2295) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-025995",
+      "action": "target",
+      "predicted_effect": 0.2287370629038533,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Merton",
+      "device_type": "mobile",
+      "channel": "brand_search",
+      "rationale": "High predicted incremental impact (0.2287) in uplift decile 1; candidate for prioritized treatment."
+    },
+    {
+      "user_id": "LON-063642",
+      "action": "target",
+      "predicted_effect": 0.2275355690632106,
+      "uplift_decile_rank": 1,
+      "segment": "High Intent Returners",
+      "london_borough": "Merton",
+      "device_type": "mobile",
+      "channel": "homepage",
+      "rationale": "High predicted incremental impact (0.2275) in uplift decile 1; candidate for prioritized treatment."
+    }
+  ],
+  "top_suppress_users": [
+    {
+      "user_id": "LON-038770",
+      "action": "suppress",
+      "predicted_effect": -0.265199348886887,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Islington",
+      "device_type": "mobile",
+      "channel": "retargeting_display",
+      "rationale": "Low or negative predicted incremental impact (-0.2652); candidate for suppression."
+    },
+    {
+      "user_id": "LON-056125",
+      "action": "suppress",
+      "predicted_effect": -0.2268177845945407,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Tower Hamlets",
+      "device_type": "mobile",
+      "channel": "app_entry",
+      "rationale": "Low or negative predicted incremental impact (-0.2268); candidate for suppression."
+    },
+    {
+      "user_id": "LON-085976",
+      "action": "suppress",
+      "predicted_effect": -0.216754599831926,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Barnet",
+      "device_type": "tablet",
+      "channel": "generic_search",
+      "rationale": "Low or negative predicted incremental impact (-0.2168); candidate for suppression."
+    },
+    {
+      "user_id": "LON-037833",
+      "action": "suppress",
+      "predicted_effect": -0.208286371897658,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Brent",
+      "device_type": "desktop",
+      "channel": "app_entry",
+      "rationale": "Low or negative predicted incremental impact (-0.2083); candidate for suppression."
+    },
+    {
+      "user_id": "LON-091916",
+      "action": "suppress",
+      "predicted_effect": -0.2051923481403774,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Hackney",
+      "device_type": "mobile",
+      "channel": "app_entry",
+      "rationale": "Low or negative predicted incremental impact (-0.2052); candidate for suppression."
+    },
+    {
+      "user_id": "LON-035741",
+      "action": "suppress",
+      "predicted_effect": -0.2013368139207032,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Greenwich",
+      "device_type": "desktop",
+      "channel": "app_entry",
+      "rationale": "Low or negative predicted incremental impact (-0.2013); candidate for suppression."
+    },
+    {
+      "user_id": "LON-071544",
+      "action": "suppress",
+      "predicted_effect": -0.192520896644396,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Croydon",
+      "device_type": "mobile",
+      "channel": "brand_navigation",
+      "rationale": "Low or negative predicted incremental impact (-0.1925); candidate for suppression."
+    },
+    {
+      "user_id": "LON-067193",
+      "action": "suppress",
+      "predicted_effect": -0.1896126773425626,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Wandsworth",
+      "device_type": "mobile",
+      "channel": "lifecycle_email",
+      "rationale": "Low or negative predicted incremental impact (-0.1896); candidate for suppression."
+    },
+    {
+      "user_id": "LON-001533",
+      "action": "suppress",
+      "predicted_effect": -0.1874336429012649,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Lambeth",
+      "device_type": "mobile",
+      "channel": "homepage",
+      "rationale": "Low or negative predicted incremental impact (-0.1874); candidate for suppression."
+    },
+    {
+      "user_id": "LON-089798",
+      "action": "suppress",
+      "predicted_effect": -0.1870077622267212,
+      "uplift_decile_rank": 10,
+      "segment": "Loyal Members",
+      "london_borough": "Bromley",
+      "device_type": "desktop",
+      "channel": "promo_email",
+      "rationale": "Low or negative predicted incremental impact (-0.1870); candidate for suppression."
+    },
+    {
+      "user_id": "LON-071711",
+      "action": "suppress",
+      "predicted_effect": -0.1861645765668604,
+      "uplift_decile_rank": 10,
+      "segment": "Loyal Members",
+      "london_borough": "Harrow",
+      "device_type": "desktop",
+      "channel": "promo_email",
+      "rationale": "Low or negative predicted incremental impact (-0.1862); candidate for suppression."
+    },
+    {
+      "user_id": "LON-077173",
+      "action": "suppress",
+      "predicted_effect": -0.1845730882169843,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Greenwich",
+      "device_type": "mobile",
+      "channel": "paid_social",
+      "rationale": "Low or negative predicted incremental impact (-0.1846); candidate for suppression."
+    },
+    {
+      "user_id": "LON-079839",
+      "action": "suppress",
+      "predicted_effect": -0.1842379744823077,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Wandsworth",
+      "device_type": "desktop",
+      "channel": "homepage",
+      "rationale": "Low or negative predicted incremental impact (-0.1842); candidate for suppression."
+    },
+    {
+      "user_id": "LON-041105",
+      "action": "suppress",
+      "predicted_effect": -0.1840898585265364,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Westminster",
+      "device_type": "mobile",
+      "channel": "homepage",
+      "rationale": "Low or negative predicted incremental impact (-0.1841); candidate for suppression."
+    },
+    {
+      "user_id": "LON-046339",
+      "action": "suppress",
+      "predicted_effect": -0.1829638761086557,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Newham",
+      "device_type": "desktop",
+      "channel": "homepage",
+      "rationale": "Low or negative predicted incremental impact (-0.1830); candidate for suppression."
+    },
+    {
+      "user_id": "LON-058317",
+      "action": "suppress",
+      "predicted_effect": -0.1820209048619396,
+      "uplift_decile_rank": 10,
+      "segment": "Loyal Members",
+      "london_borough": "Newham",
+      "device_type": "desktop",
+      "channel": "seo_brand",
+      "rationale": "Low or negative predicted incremental impact (-0.1820); candidate for suppression."
+    },
+    {
+      "user_id": "LON-083935",
+      "action": "suppress",
+      "predicted_effect": -0.1773846230014748,
+      "uplift_decile_rank": 10,
+      "segment": "Loyal Members",
+      "london_borough": "Hackney",
+      "device_type": "mobile",
+      "channel": "homepage",
+      "rationale": "Low or negative predicted incremental impact (-0.1774); candidate for suppression."
+    },
+    {
+      "user_id": "LON-057866",
+      "action": "suppress",
+      "predicted_effect": -0.1768721943173518,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Islington",
+      "device_type": "desktop",
+      "channel": "app_entry",
+      "rationale": "Low or negative predicted incremental impact (-0.1769); candidate for suppression."
+    },
+    {
+      "user_id": "LON-010460",
+      "action": "suppress",
+      "predicted_effect": -0.1766835959597023,
+      "uplift_decile_rank": 10,
+      "segment": "Loyal Members",
+      "london_borough": "Lambeth",
+      "device_type": "desktop",
+      "channel": "lifecycle_email",
+      "rationale": "Low or negative predicted incremental impact (-0.1767); candidate for suppression."
+    },
+    {
+      "user_id": "LON-061604",
+      "action": "suppress",
+      "predicted_effect": -0.1762903971033596,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Ealing",
+      "device_type": "mobile",
+      "channel": "paid_social",
+      "rationale": "Low or negative predicted incremental impact (-0.1763); candidate for suppression."
+    },
+    {
+      "user_id": "LON-040544",
+      "action": "suppress",
+      "predicted_effect": -0.1732729546652421,
+      "uplift_decile_rank": 10,
+      "segment": "Young Professionals",
+      "london_borough": "Barnet",
+      "device_type": "mobile",
+      "channel": "affiliate_content",
+      "rationale": "Low or negative predicted incremental impact (-0.1733); candidate for suppression."
+    },
+    {
+      "user_id": "LON-029347",
+      "action": "suppress",
+      "predicted_effect": -0.1724380106797166,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Ealing",
+      "device_type": "desktop",
+      "channel": "homepage",
+      "rationale": "Low or negative predicted incremental impact (-0.1724); candidate for suppression."
+    },
+    {
+      "user_id": "LON-035700",
+      "action": "suppress",
+      "predicted_effect": -0.1721609309799084,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Croydon",
+      "device_type": "tablet",
+      "channel": "homepage",
+      "rationale": "Low or negative predicted incremental impact (-0.1722); candidate for suppression."
+    },
+    {
+      "user_id": "LON-059018",
+      "action": "suppress",
+      "predicted_effect": -0.1721271498810543,
+      "uplift_decile_rank": 10,
+      "segment": "High Intent Returners",
+      "london_borough": "Sutton",
+      "device_type": "mobile",
+      "channel": "brand_navigation",
+      "rationale": "Low or negative predicted incremental impact (-0.1721); candidate for suppression."
+    },
+    {
+      "user_id": "LON-011527",
+      "action": "suppress",
+      "predicted_effect": -0.1702017098351415,
+      "uplift_decile_rank": 10,
+      "segment": "Young Professionals",
+      "london_borough": "Croydon",
+      "device_type": "mobile",
+      "channel": "homepage",
+      "rationale": "Low or negative predicted incremental impact (-0.1702); candidate for suppression."
+    }
+  ],
+  "target_cohorts": [
+    {
+      "group_column": "london_borough",
+      "group_value": "Hackney",
+      "action": "target",
+      "mean_predicted_effect": 0.02618869958621298,
+      "observed_ate": 0.016325779483674224,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0262 with observed ATE 0.0163; prioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Merton",
+      "action": "target",
+      "mean_predicted_effect": 0.025689320177933177,
+      "observed_ate": 0.043004923883091656,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0257 with observed ATE 0.0430; prioritize this cohort."
+    },
+    {
+      "group_column": "segment",
+      "group_value": "High Intent Returners",
+      "action": "target",
+      "mean_predicted_effect": 0.022910596398893156,
+      "observed_ate": 0.02433115230825153,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0229 with observed ATE 0.0243; prioritize this cohort."
+    },
+    {
+      "group_column": "segment",
+      "group_value": "Bargain Hunters",
+      "action": "target",
+      "mean_predicted_effect": 0.015572269886188272,
+      "observed_ate": 0.023196564839146845,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0156 with observed ATE 0.0232; prioritize this cohort."
+    },
+    {
+      "group_column": "channel",
+      "group_value": "generic_search",
+      "action": "target",
+      "mean_predicted_effect": 0.01525901183422402,
+      "observed_ate": 0.035392443830121675,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0153 with observed ATE 0.0354; prioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Richmond upon Thames",
+      "action": "target",
+      "mean_predicted_effect": 0.015010623701601312,
+      "observed_ate": 0.0124223602484472,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0150 with observed ATE 0.0124; prioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Ealing",
+      "action": "target",
+      "mean_predicted_effect": 0.013710578558503083,
+      "observed_ate": 0.022424606924993554,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0137 with observed ATE 0.0224; prioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "City of London",
+      "action": "target",
+      "mean_predicted_effect": 0.01333897530580984,
+      "observed_ate": 0.020176082171680113,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0133 with observed ATE 0.0202; prioritize this cohort."
+    },
+    {
+      "group_column": "channel",
+      "group_value": "affiliate_content",
+      "action": "target",
+      "mean_predicted_effect": 0.013161754871703997,
+      "observed_ate": 0.006677393403057119,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0132 with observed ATE 0.0067; prioritize this cohort."
+    },
+    {
+      "group_column": "segment",
+      "group_value": "Young Professionals",
+      "action": "target",
+      "mean_predicted_effect": 0.01284284035459904,
+      "observed_ate": 0.015374774631456145,
+      "recommendation_label": "prioritize",
+      "rationale": "Mean predicted effect 0.0128 with observed ATE 0.0154; prioritize this cohort."
+    }
+  ],
+  "suppress_cohorts": [
+    {
+      "group_column": "london_borough",
+      "group_value": "Sutton",
+      "action": "suppress",
+      "mean_predicted_effect": 0.010135772699609904,
+      "observed_ate": -0.08340720104681101,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0101 with observed ATE -0.0834; suppress or deprioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Kingston upon Thames",
+      "action": "suppress",
+      "mean_predicted_effect": 0.008811403539540805,
+      "observed_ate": -0.06626966783216784,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0088 with observed ATE -0.0663; suppress or deprioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Kensington and Chelsea",
+      "action": "suppress",
+      "mean_predicted_effect": 0.008893272274592377,
+      "observed_ate": -0.03787878787878787,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0089 with observed ATE -0.0379; suppress or deprioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Camden",
+      "action": "suppress",
+      "mean_predicted_effect": 0.007428894805142698,
+      "observed_ate": -0.029281094760521126,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0074 with observed ATE -0.0293; suppress or deprioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Redbridge",
+      "action": "suppress",
+      "mean_predicted_effect": 0.010896644061706443,
+      "observed_ate": -0.02895664164240845,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0109 with observed ATE -0.0290; suppress or deprioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Tower Hamlets",
+      "action": "suppress",
+      "mean_predicted_effect": 0.011523598311202548,
+      "observed_ate": -0.024369598146663105,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0115 with observed ATE -0.0244; suppress or deprioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Westminster",
+      "action": "suppress",
+      "mean_predicted_effect": 0.010619625157739612,
+      "observed_ate": -0.024239713774597507,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0106 with observed ATE -0.0242; suppress or deprioritize this cohort."
+    },
+    {
+      "group_column": "channel",
+      "group_value": "app_entry",
+      "action": "suppress",
+      "mean_predicted_effect": 0.005190320437812259,
+      "observed_ate": -0.02393372677867922,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0052 with observed ATE -0.0239; suppress or deprioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Barking and Dagenham",
+      "action": "suppress",
+      "mean_predicted_effect": 0.009205804174513376,
+      "observed_ate": -0.02220856067009913,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0092 with observed ATE -0.0222; suppress or deprioritize this cohort."
+    },
+    {
+      "group_column": "london_borough",
+      "group_value": "Lewisham",
+      "action": "suppress",
+      "mean_predicted_effect": 0.011044649993573425,
+      "observed_ate": -0.021374527112232033,
+      "recommendation_label": "suppress",
+      "rationale": "Mean predicted effect 0.0110 with observed ATE -0.0214; suppress or deprioritize this cohort."
+    }
+  ],
+  "action_summary": "Increase treatment on Hackney, Merton, High Intent Returners; suppress or deprioritize Sutton, Kingston upon Thames, Kensington and Chelsea."
+}

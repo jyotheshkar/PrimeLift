@@ -165,9 +165,9 @@ function createFallbackViewModel(mode: OverviewSourceMode, error: string | null)
       tone: "ready",
     })),
     nextUp: [
-      "Integrate the uplift insights screen with the Phase 4 API endpoints.",
-      "Integrate the recommendations screen with the Phase 5 closeout endpoint.",
-      "Integrate the dataset and model panel with live dataset and registry responses.",
+      "All Phase 8 integrations are complete — every screen now uses a live API with snapshot fallback.",
+      "Phase 9: Add automated tests for data generation shape, feature pipeline, and scoring output types.",
+      "Phase 10: Extend with hyperparameter tuning, budget optimisation solver, and scheduled reports.",
     ],
   };
 }
@@ -299,9 +299,9 @@ function createLiveViewModel(
       },
     ],
     nextUp: [
-      "Replace the uplift insights snapshot with live Phase 4 segment and decile responses.",
-      "Replace the recommendations snapshot with the live Phase 5 closeout response.",
-      "Replace the dataset and model panel snapshot with live dataset and model registry data.",
+      "All Phase 8 integrations are complete — every screen now uses a live API with snapshot fallback.",
+      "Phase 9: Add automated tests for data generation shape, feature pipeline, and scoring output types.",
+      "Phase 10: Extend with hyperparameter tuning, budget optimisation solver, and scheduled reports.",
     ],
   };
 }

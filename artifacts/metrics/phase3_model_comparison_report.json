@@ -1,0 +1,151 @@
+{
+  "report_name": "phase3_model_comparison",
+  "comparison_split": "test",
+  "generated_from_reports": [
+    "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\xlearner_conversion_training_report.json",
+    "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\drlearner_conversion_training_report.json",
+    "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\causal_forest_conversion_training_report.json",
+    "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\drlearner_revenue_training_report.json"
+  ],
+  "conversion_comparison": {
+    "outcome_column": "conversion",
+    "split_name": "test",
+    "baseline_observed_ate": 0.009976772207203513,
+    "ranked_models": [
+      {
+        "model_name": "drlearner_conversion",
+        "outcome_column": "conversion",
+        "split_name": "test",
+        "metrics_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\drlearner_conversion_training_report.json",
+        "overall_observed_ate": 0.009976772207203513,
+        "top_decile_observed_ate": 0.036735419630156474,
+        "bottom_decile_observed_ate": 0.011345797948085268,
+        "top_decile_gain_over_baseline": 0.02675864742295296,
+        "bottom_decile_gain_over_baseline": 0.0013690257408817547,
+        "observed_top_bottom_gap": 0.025389621682071206,
+        "mean_predicted_cate": 0.010704826480802376,
+        "std_predicted_cate": 0.031667336776370465,
+        "positive_cate_share": 0.832,
+        "top_decile_mean_predicted_cate": 0.06722212842209364,
+        "bottom_decile_mean_predicted_cate": -0.04367375477968902,
+        "interval_capable": false,
+        "mean_interval_width": null,
+        "top_segments": [
+          "High Intent Returners",
+          "Bargain Hunters",
+          "Young Professionals"
+        ],
+        "bottom_segments": [
+          "Lapsed Users",
+          "Loyal Members",
+          "Families"
+        ]
+      },
+      {
+        "model_name": "causal_forest_conversion",
+        "outcome_column": "conversion",
+        "split_name": "test",
+        "metrics_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\causal_forest_conversion_training_report.json",
+        "overall_observed_ate": 0.009976772207203513,
+        "top_decile_observed_ate": 0.012935450819672123,
+        "bottom_decile_observed_ate": 0.04092978766150296,
+        "top_decile_gain_over_baseline": 0.00295867861246861,
+        "bottom_decile_gain_over_baseline": 0.030953015454299446,
+        "observed_top_bottom_gap": -0.027994336841830836,
+        "mean_predicted_cate": 0.010946921427718264,
+        "std_predicted_cate": 0.013043019793322449,
+        "positive_cate_share": 0.8037333333333333,
+        "top_decile_mean_predicted_cate": 0.034894885414083705,
+        "bottom_decile_mean_predicted_cate": -0.010791447992926436,
+        "interval_capable": true,
+        "mean_interval_width": 0.07830430569526774,
+        "top_segments": [
+          "High Intent Returners",
+          "Bargain Hunters",
+          "Young Professionals"
+        ],
+        "bottom_segments": [
+          "Lapsed Users",
+          "Window Shoppers",
+          "Loyal Members"
+        ]
+      },
+      {
+        "model_name": "xlearner_conversion",
+        "outcome_column": "conversion",
+        "split_name": "test",
+        "metrics_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\xlearner_conversion_training_report.json",
+        "overall_observed_ate": 0.009976772207203513,
+        "top_decile_observed_ate": 0.006286769869730868,
+        "bottom_decile_observed_ate": -0.0015578761666287244,
+        "top_decile_gain_over_baseline": -0.003690002337472645,
+        "bottom_decile_gain_over_baseline": -0.011534648373832238,
+        "observed_top_bottom_gap": 0.007844646036359593,
+        "mean_predicted_cate": 0.010284462220123103,
+        "std_predicted_cate": 0.020882772920962692,
+        "positive_cate_share": 0.8279333333333333,
+        "top_decile_mean_predicted_cate": 0.04820049751830612,
+        "bottom_decile_mean_predicted_cate": -0.028041036451185802,
+        "interval_capable": false,
+        "mean_interval_width": null,
+        "top_segments": [
+          "High Intent Returners",
+          "Bargain Hunters",
+          "Young Professionals"
+        ],
+        "bottom_segments": [
+          "Lapsed Users",
+          "Loyal Members",
+          "Window Shoppers"
+        ]
+      }
+    ],
+    "champion_model_name": "drlearner_conversion",
+    "champion_reason": "Highest test top-decile observed uplift/revenue effect (0.036735) with top-vs-bottom observed gap 0.025390.",
+    "challenger_model_name": "causal_forest_conversion",
+    "challenger_reason": "Next-best test top-decile observed uplift/revenue effect (0.012935) with top-vs-bottom observed gap -0.027994. It also provides interval estimates with mean width 0.078304."
+  },
+  "revenue_comparison": {
+    "outcome_column": "revenue",
+    "split_name": "test",
+    "baseline_observed_ate": 1.1248448294694313,
+    "ranked_models": [
+      {
+        "model_name": "drlearner_revenue",
+        "outcome_column": "revenue",
+        "split_name": "test",
+        "metrics_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\drlearner_revenue_training_report.json",
+        "overall_observed_ate": 1.1248448294694313,
+        "top_decile_observed_ate": 6.112633959365958,
+        "bottom_decile_observed_ate": 0.7178358782154888,
+        "top_decile_gain_over_baseline": 4.987789129896527,
+        "bottom_decile_gain_over_baseline": -0.40700895125394254,
+        "observed_top_bottom_gap": 5.394798081150469,
+        "mean_predicted_cate": 1.1148086850583407,
+        "std_predicted_cate": 6.412404197408853,
+        "positive_cate_share": 0.8587333333333333,
+        "top_decile_mean_predicted_cate": 11.759540097017986,
+        "bottom_decile_mean_predicted_cate": -9.045402240867935,
+        "interval_capable": false,
+        "mean_interval_width": null,
+        "top_segments": [
+          "High Intent Returners",
+          "Young Professionals",
+          "Students"
+        ],
+        "bottom_segments": [
+          "Loyal Members",
+          "Families",
+          "Lapsed Users"
+        ]
+      }
+    ],
+    "champion_model_name": "drlearner_revenue",
+    "champion_reason": "Highest test top-decile observed uplift/revenue effect (6.112634) with top-vs-bottom observed gap 5.394798.",
+    "challenger_model_name": null,
+    "challenger_reason": null
+  },
+  "revised_phase_3_status": "complete",
+  "next_recommended_phase": 4,
+  "next_recommended_focus": "Model-based uplift reporting and decile analysis."
+}

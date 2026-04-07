@@ -1,23 +1,31 @@
-const DEFAULT_API_URL = "http://127.0.0.1:8000";
+const DEFAULT_API_URL = "http://127.0.0.1:8001";
 
 export function getPrimeLiftApiUrl() {
   return process.env.NEXT_PUBLIC_PRIMELIFT_API_URL ?? DEFAULT_API_URL;
 }
 
-async function getJson<T>(path: string): Promise<T> {
-  const response = await fetch(`${getPrimeLiftApiUrl()}${path}`, {
-    cache: "no-store",
-    headers: {
-      Accept: "application/json",
-    },
-  });
+async function getJson<T>(path: string, timeoutMs = 15_000): Promise<T> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
 
-  if (!response.ok) {
-    throw new Error(`PrimeLift API request failed for ${path} with ${response.status}`);
+  try {
+    const response = await fetch(`${getPrimeLiftApiUrl()}${path}`, {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      throw new Error(`PrimeLift API request failed for ${path} with ${response.status}`);
+    }
+
+    return (await response.json()) as T;
+  } finally {
+    clearTimeout(timer);
   }
-
-  return (await response.json()) as T;
 }
+
+// --- TYPES ---
 
 export type HealthResponse = {
   status: string;
@@ -33,8 +41,21 @@ export type HealthResponse = {
 };
 
 export type AnalysisATEResponse = {
+  status: string;
+  source_path: string;
+  row_count: number;
   result: {
+    outcome_column: string;
+    treatment_column: string;
+    treated_mean: number;
+    control_mean: number;
     ate: number;
+    absolute_lift: number;
+    relative_lift: number;
+    ci_lower: number;
+    ci_upper: number;
+    confidence_level: number;
+    bootstrap_samples: number;
   };
 };
 
@@ -125,24 +146,96 @@ export type AnalysisRecommendationsResponse = {
   };
 };
 
-export async function fetchOverviewBundle() {
-  const [health, ate, models, segments, recommendations] = await Promise.all([
-    getJson<HealthResponse>("/health"),
-    getJson<AnalysisATEResponse>("/analysis/ate?outcome=conversion&bootstrap_samples=120"),
-    getJson<AnalysisModelsResponse>("/analysis/models"),
-    getJson<AnalysisSegmentsResponse>("/analysis/segments"),
-    getJson<AnalysisRecommendationsResponse>("/analysis/recommendations"),
-  ]);
+export type DatasetSampleResponse = {
+  status: string;
+  source_path: string;
+  requested_rows: number;
+  returned_rows: number;
+  available_rows: number;
+  columns: string[];
+  records: Record<string, unknown>[];
+};
 
-  return {
-    health,
-    ate,
-    models,
-    segments,
-    recommendations,
+export type DatasetGenerateResponse = {
+  status: string;
+  output_path: string;
+  seed: number;
+  summary?: {
+    row_count: number;
+    columns: string[];
+    conversion_rate: number;
+    segment_counts: Record<string, number>;
+    treatment_control_split: Record<string, number>;
   };
+};
+
+// --- FETCH FUNCTIONS ---
+
+export async function fetchHealth() {
+  return getJson<HealthResponse>("/health");
+}
+
+export async function fetchATE(bootstrapSamples = 30) {
+  return getJson<AnalysisATEResponse>(
+    `/analysis/ate?outcome=conversion&bootstrap_samples=${bootstrapSamples}`,
+    45_000,
+  );
+}
+
+export async function fetchModels() {
+  return getJson<AnalysisModelsResponse>("/analysis/models");
+}
+
+export async function fetchSegments() {
+  return getJson<AnalysisSegmentsResponse>("/analysis/segments");
+}
+
+export async function fetchRecommendations() {
+  return getJson<AnalysisRecommendationsResponse>("/analysis/recommendations");
 }
 
 export async function fetchUpliftInsightsData() {
-  return getJson<AnalysisSegmentsResponse>("/analysis/segments");
+  return fetchSegments();
+}
+
+export async function fetchRecommendationsData() {
+  return fetchRecommendations();
+}
+
+export async function fetchDatasetModelsBundle() {
+  const [sample, models] = await Promise.all([
+    getJson<DatasetSampleResponse>("/dataset/sample?rows=10"),
+    fetchModels(),
+  ]);
+  return { sample, models };
+}
+
+export async function fetchOverviewBundle() {
+  const [health, ate, models, segments, recommendations] = await Promise.all([
+    fetchHealth(),
+    fetchATE(30),
+    fetchModels(),
+    fetchSegments(),
+    fetchRecommendations(),
+  ]);
+  return { health, ate, models, segments, recommendations };
+}
+
+export async function postDatasetGenerate(
+  rows: number = 100_000,
+  seed: number = 42,
+): Promise<DatasetGenerateResponse> {
+  const response = await fetch(`${getPrimeLiftApiUrl()}/dataset/generate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ rows, seed }),
+  });
+
+  if (!response.ok) {
+    throw new Error(
+      `PrimeLift API request failed for /dataset/generate with ${response.status}`,
+    );
+  }
+
+  return (await response.json()) as DatasetGenerateResponse;
 }

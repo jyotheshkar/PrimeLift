@@ -1,0 +1,158 @@
+{
+  "report_name": "phase5_drpolicytree_conversion_policy",
+  "outcome_column": "conversion",
+  "split_name": "test",
+  "raw_dataset_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\data\\raw\\london_campaign_users_100k.csv",
+  "prepared_manifest_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\features\\prepared_dataset_manifest.json",
+  "model_artifact_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\models\\drpolicytree_conversion.joblib",
+  "decisions_output_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\drpolicytree_conversion_test_decisions.csv",
+  "output_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\drpolicytree_conversion_policy_report.json",
+  "train_row_count": 70000,
+  "test_row_count": 15000,
+  "policy_feature_columns": [
+    "age",
+    "prior_engagement_score",
+    "prior_purchases_90d",
+    "prior_sessions_30d",
+    "avg_order_value",
+    "customer_tenure_days",
+    "segment = Bargain Hunters",
+    "segment = Families",
+    "segment = High Intent Returners",
+    "segment = Lapsed Users",
+    "segment = Loyal Members",
+    "segment = Students",
+    "segment = Window Shoppers",
+    "segment = Young Professionals",
+    "device_type = desktop",
+    "device_type = mobile",
+    "device_type = tablet",
+    "is_prime_like_member = 0",
+    "is_prime_like_member = 1"
+  ],
+  "policy_feature_count": 19,
+  "tree_max_depth": 3,
+  "tree_actual_depth": 3,
+  "tree_leaf_count": 7,
+  "recommended_treat_user_count": 12176,
+  "recommended_control_user_count": 2824,
+  "recommended_treat_rate": 0.8117333333333333,
+  "estimated_policy_value": 0.12208121165004987,
+  "mean_predicted_policy_value": 0.010584105391354109,
+  "always_treat_value": 0.12272970085470085,
+  "always_control_value": 0.11275292864749734,
+  "policy_gain_over_always_treat": -0.0006484892046509788,
+  "policy_gain_over_always_control": 0.009328283002552534,
+  "recommended_treat_observed_ate": 0.01141876130147687,
+  "top_feature_importances": [
+    {
+      "feature_name": "avg_order_value",
+      "importance": 0.8192219816424395
+    },
+    {
+      "feature_name": "segment = Lapsed Users",
+      "importance": 0.12659833343245636
+    },
+    {
+      "feature_name": "prior_engagement_score",
+      "importance": 0.047284497159661924
+    },
+    {
+      "feature_name": "age",
+      "importance": 0.0068951877654421095
+    }
+  ],
+  "top_treat_segments": [
+    {
+      "segment": "Young Professionals",
+      "user_count": 2595,
+      "user_share": 0.21312417871222075
+    },
+    {
+      "segment": "Families",
+      "user_count": 2287,
+      "user_share": 0.18782851511169513
+    },
+    {
+      "segment": "High Intent Returners",
+      "user_count": 1933,
+      "user_share": 0.15875492772667543
+    }
+  ],
+  "top_control_segments": [
+    {
+      "segment": "Lapsed Users",
+      "user_count": 1111,
+      "user_share": 0.39341359773371104
+    },
+    {
+      "segment": "Students",
+      "user_count": 563,
+      "user_share": 0.19936260623229463
+    },
+    {
+      "segment": "Window Shoppers",
+      "user_count": 295,
+      "user_share": 0.10446175637393768
+    }
+  ],
+  "leaf_summaries": [
+    {
+      "leaf_id": 4,
+      "depth": 3,
+      "recommended_action": "treat",
+      "estimated_value": 0.015857701621953928,
+      "test_user_count": 11832,
+      "rule": "avg_order_value <= 147.81 and segment != Lapsed Users and avg_order_value > 43.05"
+    },
+    {
+      "leaf_id": 11,
+      "depth": 3,
+      "recommended_action": "treat",
+      "estimated_value": 0.02529911489901877,
+      "test_user_count": 180,
+      "rule": "avg_order_value > 147.81 and prior_engagement_score <= 92.15 and avg_order_value > 181.49"
+    },
+    {
+      "leaf_id": 6,
+      "depth": 3,
+      "recommended_action": "treat",
+      "estimated_value": 0.012895156423321256,
+      "test_user_count": 91,
+      "rule": "avg_order_value <= 147.81 and segment == Lapsed Users and age <= 31.50"
+    },
+    {
+      "leaf_id": 12,
+      "depth": 2,
+      "recommended_action": "treat",
+      "estimated_value": 0.06033011658466863,
+      "test_user_count": 73,
+      "rule": "avg_order_value > 147.81 and prior_engagement_score > 92.15"
+    },
+    {
+      "leaf_id": 7,
+      "depth": 3,
+      "recommended_action": "control",
+      "estimated_value": 0.0,
+      "test_user_count": 1096,
+      "rule": "avg_order_value <= 147.81 and segment == Lapsed Users and age > 31.50"
+    },
+    {
+      "leaf_id": 3,
+      "depth": 3,
+      "recommended_action": "control",
+      "estimated_value": 0.0,
+      "test_user_count": 1065,
+      "rule": "avg_order_value <= 147.81 and segment != Lapsed Users and avg_order_value <= 43.05"
+    },
+    {
+      "leaf_id": 10,
+      "depth": 3,
+      "recommended_action": "control",
+      "estimated_value": 0.0,
+      "test_user_count": 663,
+      "rule": "avg_order_value > 147.81 and prior_engagement_score <= 92.15 and avg_order_value <= 181.49"
+    }
+  ],
+  "action_summary": "Treat users matching: avg_order_value <= 147.81 and segment != Lapsed Users and avg_order_value > 43.05; avg_order_value > 147.81 and prior_engagement_score <= 92.15 and avg_order_value > 181.49. Hold out the remaining users."
+}

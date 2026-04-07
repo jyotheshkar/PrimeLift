@@ -1,0 +1,106 @@
+{
+  "report_name": "phase5_drpolicyforest_conversion_policy",
+  "outcome_column": "conversion",
+  "split_name": "test",
+  "raw_dataset_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\data\\raw\\london_campaign_users_100k.csv",
+  "prepared_manifest_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\features\\prepared_dataset_manifest.json",
+  "model_artifact_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\models\\drpolicyforest_conversion.joblib",
+  "decisions_output_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\drpolicyforest_conversion_test_decisions.csv",
+  "output_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\drpolicyforest_conversion_policy_report.json",
+  "policy_tree_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\drpolicytree_conversion_policy_report.json",
+  "train_row_count": 70000,
+  "test_row_count": 15000,
+  "policy_feature_columns": [
+    "age",
+    "prior_engagement_score",
+    "prior_purchases_90d",
+    "prior_sessions_30d",
+    "avg_order_value",
+    "customer_tenure_days",
+    "segment = Bargain Hunters",
+    "segment = Families",
+    "segment = High Intent Returners",
+    "segment = Lapsed Users",
+    "segment = Loyal Members",
+    "segment = Students",
+    "segment = Window Shoppers",
+    "segment = Young Professionals",
+    "device_type = desktop",
+    "device_type = mobile",
+    "device_type = tablet",
+    "is_prime_like_member = 0",
+    "is_prime_like_member = 1"
+  ],
+  "policy_feature_count": 19,
+  "forest_n_estimators": 200,
+  "forest_max_depth": 6,
+  "recommended_treat_user_count": 13317,
+  "recommended_control_user_count": 1683,
+  "recommended_treat_rate": 0.8878,
+  "estimated_policy_value": 0.12349633229269714,
+  "mean_predicted_policy_value": 0.010641688025461959,
+  "always_treat_value": 0.12272970085470085,
+  "always_control_value": 0.11275292864749734,
+  "policy_gain_over_always_treat": 0.0007666314379962957,
+  "policy_gain_over_always_control": 0.010743403645199809,
+  "policy_tree_value": 0.12208121165004987,
+  "policy_gain_over_tree": 0.0014151206426472746,
+  "recommended_treat_observed_ate": 0.012100412869935961,
+  "top_feature_importances": [
+    {
+      "feature_name": "avg_order_value",
+      "importance": 0.47541119543952937
+    },
+    {
+      "feature_name": "prior_engagement_score",
+      "importance": 0.13244638682866583
+    },
+    {
+      "feature_name": "segment = Lapsed Users",
+      "importance": 0.1274821011899079
+    },
+    {
+      "feature_name": "prior_sessions_30d",
+      "importance": 0.06702217495381833
+    },
+    {
+      "feature_name": "segment = Loyal Members",
+      "importance": 0.04814479470932569
+    }
+  ],
+  "top_treat_segments": [
+    {
+      "segment": "Young Professionals",
+      "user_count": 2656,
+      "user_share": 0.19944431929113163
+    },
+    {
+      "segment": "Families",
+      "user_count": 2342,
+      "user_share": 0.17586543515806863
+    },
+    {
+      "segment": "High Intent Returners",
+      "user_count": 2019,
+      "user_share": 0.1516107231358414
+    }
+  ],
+  "top_control_segments": [
+    {
+      "segment": "Lapsed Users",
+      "user_count": 936,
+      "user_share": 0.5561497326203209
+    },
+    {
+      "segment": "Window Shoppers",
+      "user_count": 246,
+      "user_share": 0.14616755793226383
+    },
+    {
+      "segment": "Loyal Members",
+      "user_count": 217,
+      "user_share": 0.1289364230540701
+    }
+  ],
+  "action_summary": "Policy forest treats primarily Young Professionals, Families, High Intent Returners; holds out more of Lapsed Users, Window Shoppers."
+}

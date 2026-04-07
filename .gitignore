@@ -18,8 +18,8 @@ artifacts/models/*
 !artifacts/models/.gitkeep
 artifacts/reports/*
 !artifacts/reports/.gitkeep
-artifacts/metrics/*
-!artifacts/metrics/.gitkeep
+artifacts/metrics/*.csv
+# JSON metric reports are committed — they are required by the API at runtime
 artifacts/features/*
 !artifacts/features/.gitkeep
 frontend/node_modules/

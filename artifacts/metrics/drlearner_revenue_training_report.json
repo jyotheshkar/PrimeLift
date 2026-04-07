@@ -1,0 +1,214 @@
+{
+  "model_name": "drlearner_revenue",
+  "prepared_manifest_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\features\\prepared_dataset_manifest.json",
+  "feature_column_count": 105,
+  "feature_column_sample": [
+    "numeric__age",
+    "numeric__prior_engagement_score",
+    "numeric__prior_purchases_90d",
+    "numeric__prior_sessions_30d",
+    "numeric__avg_order_value",
+    "numeric__customer_tenure_days",
+    "categorical__london_borough_Barking and Dagenham",
+    "categorical__london_borough_Barnet",
+    "categorical__london_borough_Bexley",
+    "categorical__london_borough_Brent",
+    "categorical__london_borough_Bromley",
+    "categorical__london_borough_Camden",
+    "categorical__london_borough_City of London",
+    "categorical__london_borough_Croydon",
+    "categorical__london_borough_Ealing",
+    "categorical__london_borough_Enfield",
+    "categorical__london_borough_Greenwich",
+    "categorical__london_borough_Hackney",
+    "categorical__london_borough_Hammersmith and Fulham",
+    "categorical__london_borough_Haringey"
+  ],
+  "train_row_count": 70000,
+  "train_observed_ate": 0.9462441764304721,
+  "validation_row_count": 15000,
+  "test_row_count": 15000,
+  "model_artifact_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\models\\drlearner_revenue.joblib",
+  "metrics_report_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\metrics\\drlearner_revenue_training_report.json",
+  "config": {
+    "outcome_column": "revenue",
+    "treatment_column": "treatment",
+    "score_column": "predicted_cate_drlearner_revenue",
+    "model_propensity_class": "lightgbm.LGBMClassifier",
+    "model_regression_class": "lightgbm.LGBMRegressor",
+    "model_final_class": "lightgbm.LGBMRegressor",
+    "model_propensity_params": {
+      "boosting_type": "gbdt",
+      "class_weight": null,
+      "colsample_bytree": 0.9,
+      "importance_type": "split",
+      "learning_rate": 0.05,
+      "max_depth": -1,
+      "min_child_samples": 40,
+      "min_child_weight": 0.001,
+      "min_split_gain": 0.0,
+      "n_estimators": 120,
+      "n_jobs": 1,
+      "num_leaves": 31,
+      "objective": null,
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "subsample": 0.9,
+      "subsample_for_bin": 200000,
+      "subsample_freq": 0,
+      "verbosity": -1
+    },
+    "model_regression_params": {
+      "boosting_type": "gbdt",
+      "class_weight": null,
+      "colsample_bytree": 0.9,
+      "importance_type": "split",
+      "learning_rate": 0.05,
+      "max_depth": -1,
+      "min_child_samples": 40,
+      "min_child_weight": 0.001,
+      "min_split_gain": 0.0,
+      "n_estimators": 120,
+      "n_jobs": 1,
+      "num_leaves": 31,
+      "objective": null,
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "subsample": 0.9,
+      "subsample_for_bin": 200000,
+      "subsample_freq": 0,
+      "verbosity": -1
+    },
+    "model_final_params": {
+      "boosting_type": "gbdt",
+      "class_weight": null,
+      "colsample_bytree": 0.9,
+      "importance_type": "split",
+      "learning_rate": 0.05,
+      "max_depth": -1,
+      "min_child_samples": 40,
+      "min_child_weight": 0.001,
+      "min_split_gain": 0.0,
+      "n_estimators": 80,
+      "n_jobs": 1,
+      "num_leaves": 31,
+      "objective": null,
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "subsample": 0.9,
+      "subsample_for_bin": 200000,
+      "subsample_freq": 0,
+      "verbosity": -1
+    },
+    "cv": 3,
+    "discrete_outcome": false
+  },
+  "baseline_validation_analysis": {
+    "outcome_column": "revenue",
+    "treatment_column": "treatment",
+    "treated_mean": 17.25228334891174,
+    "control_mean": 16.25628145386766,
+    "ate": 0.9960018950440777,
+    "absolute_lift": 0.9960018950440777,
+    "relative_lift": 0.06126874081692962,
+    "ci_lower": -0.5407211426890383,
+    "ci_upper": 2.7262496190391796,
+    "confidence_level": 0.95,
+    "bootstrap_samples": 300
+  },
+  "split_evaluations": [
+    {
+      "split_name": "validation",
+      "row_count": 15000,
+      "mean_predicted_cate": 0.9931676505657563,
+      "std_predicted_cate": 6.622461977386061,
+      "min_predicted_cate": -99.12882770524408,
+      "max_predicted_cate": 117.18766653427642,
+      "positive_cate_share": 0.8578,
+      "overall_observed_ate": 0.9960018950440777,
+      "top_decile_size": 1500,
+      "top_decile_mean_predicted_cate": 11.218829891293813,
+      "top_decile_observed_ate": 0.24756001879593015,
+      "bottom_decile_size": 1500,
+      "bottom_decile_mean_predicted_cate": -9.739258047561464,
+      "bottom_decile_observed_ate": 6.388330473050452,
+      "top_segments_by_mean_predicted_cate": [
+        {
+          "segment": "High Intent Returners",
+          "mean_predicted_cate": 3.00573963872602
+        },
+        {
+          "segment": "Young Professionals",
+          "mean_predicted_cate": 1.0559543747797961
+        },
+        {
+          "segment": "Students",
+          "mean_predicted_cate": 0.895783902508647
+        }
+      ],
+      "bottom_segments_by_mean_predicted_cate": [
+        {
+          "segment": "Loyal Members",
+          "mean_predicted_cate": -0.4191495657586869
+        },
+        {
+          "segment": "Families",
+          "mean_predicted_cate": 0.5918044342759592
+        },
+        {
+          "segment": "Lapsed Users",
+          "mean_predicted_cate": 0.7219052751310558
+        }
+      ],
+      "score_output_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\drlearner_revenue_validation_scores.csv"
+    },
+    {
+      "split_name": "test",
+      "row_count": 15000,
+      "mean_predicted_cate": 1.1148086850583407,
+      "std_predicted_cate": 6.412404197408853,
+      "min_predicted_cate": -77.03253697991434,
+      "max_predicted_cate": 93.36742054709015,
+      "positive_cate_share": 0.8587333333333333,
+      "overall_observed_ate": 1.1248448294694313,
+      "top_decile_size": 1500,
+      "top_decile_mean_predicted_cate": 11.759540097017986,
+      "top_decile_observed_ate": 6.112633959365958,
+      "bottom_decile_size": 1500,
+      "bottom_decile_mean_predicted_cate": -9.045402240867935,
+      "bottom_decile_observed_ate": 0.7178358782154888,
+      "top_segments_by_mean_predicted_cate": [
+        {
+          "segment": "High Intent Returners",
+          "mean_predicted_cate": 3.0546288579492105
+        },
+        {
+          "segment": "Young Professionals",
+          "mean_predicted_cate": 1.1213857273411545
+        },
+        {
+          "segment": "Students",
+          "mean_predicted_cate": 0.8979474821461
+        }
+      ],
+      "bottom_segments_by_mean_predicted_cate": [
+        {
+          "segment": "Loyal Members",
+          "mean_predicted_cate": 0.41633689811182234
+        },
+        {
+          "segment": "Families",
+          "mean_predicted_cate": 0.6075221730552094
+        },
+        {
+          "segment": "Lapsed Users",
+          "mean_predicted_cate": 0.7045421594865333
+        }
+      ],
+      "score_output_path": "C:\\Users\\Jyothesh karnam\\Desktop\\PrimeLift\\artifacts\\reports\\drlearner_revenue_test_scores.csv"
+    }
+  ]
+}
