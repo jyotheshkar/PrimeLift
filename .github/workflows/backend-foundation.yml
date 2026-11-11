@@ -1,0 +1,21 @@
+name: Backend foundation regression checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dataset-foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: backend/src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest backend/tests/test_dataset.py backend/tests/test_atomic_dataset.py backend/tests/test_api_dataset_generate.py backend/tests/test_api_dataset_sample.py backend/tests/test_api_health.py -q

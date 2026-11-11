@@ -53,7 +53,7 @@ class DatasetGenerateRequest(BaseModel):
 
     model_config = ConfigDict(frozen=True)
 
-    rows: int = Field(default=100_000, gt=0, description="Number of rows to generate.")
+    rows: int = Field(default=100_000, gt=0, le=100_000, description="Rows to generate (maximum 100,000 for the synchronous demo).")
     seed: int = Field(default=42, description="Random seed for reproducible generation.")
 
 

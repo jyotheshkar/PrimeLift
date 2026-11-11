@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import os
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -656,10 +658,25 @@ def generate_london_campaign_users(
 
 
 def save_dataset(dataset: pd.DataFrame, output_path: Path) -> Path:
-    """Persist a generated dataset to CSV."""
+    """Atomically publish CSV; preserve the previous dataset if writing fails.
 
+    Concurrent writers remain last-writer-wins; this is not a job scheduler.
+    """
+    output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    dataset.to_csv(output_path, index=False)
+    temporary_path = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", newline="",
+                dir=output_path.parent, prefix=f".{output_path.name}.",
+                suffix=".tmp", delete=False) as handle:
+            temporary_path = Path(handle.name)
+            dataset.to_csv(handle, index=False)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary_path, output_path)
+    finally:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
     return output_path
 
 
