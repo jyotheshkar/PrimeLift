@@ -39,3 +39,9 @@ def test_post_dataset_generate_rejects_invalid_row_count() -> None:
     response = client.post("/dataset/generate", json={"rows": 0, "seed": 42})
 
     assert response.status_code == 422
+
+
+def test_post_dataset_generate_rejects_unbounded_request() -> None:
+    client = TestClient(create_app())
+    response = client.post("/dataset/generate", json={"rows": 100_001})
+    assert response.status_code == 422

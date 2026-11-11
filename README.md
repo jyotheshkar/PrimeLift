@@ -1,5 +1,10 @@
 # PrimeLift AI
 
+## Architecture and maintenance
+
+[Technical architecture, source boundaries, scalability decisions and verification](docs/ARCHITECTURE_MAINTENANCE.md) documents the current implementation and its limits. Maintenance dated 11 November 2026 is separate from the original study or project work.
+
+
 A personal causal-inference and decision-support prototype for a **synthetic** London marketing experiment. It estimates treatment effects, compares uplift models, builds targeting and budget recommendations, and presents results through FastAPI and a Next.js dashboard.
 
 The repository demonstrates an analytical workflow. It does not establish real campaign impact, production deployment, or results for Amazon or any other employer.
