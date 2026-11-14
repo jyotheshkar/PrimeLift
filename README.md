@@ -118,3 +118,5 @@ Some backend tests train small models or generate synthetic data. Historical tes
 - No repository licence is currently supplied; third-party dependencies retain their own licences.
 
 A defensible portfolio description is: “Built a synthetic campaign-analysis prototype with treatment-effect estimators, model comparison, decision reports, a FastAPI backend and a partially integrated Next.js interface.” Quantified real-world uplift or production-use claims require separate evidence.
+
+**Year provenance:** The `2026` suffix records this repository's creation year (created 2026-03-08). Later maintenance retains its own dates.
